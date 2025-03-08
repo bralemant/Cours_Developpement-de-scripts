@@ -1,5 +1,6 @@
 # Ouvrir un fichier en écriture
-with open("tables_multiplication.txt", "w") as fichier:
+chemin_fichier = "/workspaces/Cours_Developpement-de-scripts/semaine05/Cours09/tables_multiplication.txt"
+with open(chemin_fichier, "w") as fichier:
     for i in range(1, 21):  # Boucle pour chaque table de multiplication
         fichier.write(f"Table de {i} :\n")
         for j in range(1, 21):  # Multiplication jusqu'à 20
