@@ -1,3 +1,6 @@
+print("\n\033[94mÉtape 5. Manipulation de fichiers. Un outil interactif pour l'analyse de texte\033[0m\n")
+print()
+
 def compter_lignes(fichier):
     """Compte le nombre de lignes dans le fichier."""
     with open(fichier, 'r') as f:
@@ -22,7 +25,7 @@ def compter_voyelles(fichier):
     return compteur
 
 def main():
-    fichier = "logfile.txt"  # Remplacez par le nom de votre fichier
+    fichier = "/workspaces/Cours_Developpement-de-scripts/02_420-278Developpement-de-scriptsgr7932/examen/etape_05/logfile.txt"  # Remplacez par le nom de votre fichier
 
     while True:
         print("\nChoisissez une option :")
