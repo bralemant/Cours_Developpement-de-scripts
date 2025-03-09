@@ -8,7 +8,7 @@ Projet de Laboratoire 1
 Ce projet est divisé en 5 parties, chacune implémentant des fonctionnalités spécifiques en Python.
 Voici un aperçu de chaque partie (étape) et les instructions pour exécuter le code.
 
- Pareties du projet :
+ Parties du projet :
 
 # Partie 1 : Introduction aux variables
 - Fichier : ‘etape_1.py’

@@ -8,11 +8,11 @@ nombre_aleatoire = random.randint(1, 10)
 
 # Demander à l'utilisateur de deviner le nombre
 while True:
-    entree = input("Devinez un nombre entre 1 et 10 : ")  # Récupérer l'entrée utilisateur
-    if entree.isdigit():  # Vérifier si c'est un nombre entier
-        devine = int(entree)
-        if 1 <= devine <= 10:
-            break  # Sortir de la boucle si l'entrée est correcte
+    entree = input("🎲 \033[95mTapez et devinez un nombre entre 1 et 10 :\033[0m ")              # Récupérer l'entrée utilisateur
+    if entree.isdigit():                                                       # Vérifier si c'est un nombre entier
+        devine = int(entree)                                                   # Convertir l'entrée en entier
+        if 1 <= devine <= 10:                                                  # Vérifier si l'entrée est entre 1 et 10
+            break                                                              # Sortir de la boucle si l'entrée est correcte
         else:
             print("\033[93m⚠️  Veuillez entrer un nombre entre 1 et 10.\033[0m")
     else:
