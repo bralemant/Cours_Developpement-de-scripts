@@ -1,0 +1,39 @@
+#### Procédure étape par étape pour utiliser cron ####
+
+Installation et utilisation de cron dans GitHub Codespaces
+1️ Installer cron
+sudo apt update && sudo apt install cron -y
+
+2️ Démarrer cron
+sudo service cron start
+
+3️ Vérifier si cron fonctionne (Sinon, allez à la fin de ce fichier)
+sudo service cron status
+
+4️ Ouvrir l'éditeur de tâches crontab
+crontab -e
+
+5️ Ajouter une tâche cron
+Ajoutez cette ligne à la fin du fichier :
+
+*/1 * * * * echo "Test écriture" >> /workspaces/Cours_Developpement-de-scripts/02_420-278Developpement-de-scriptsgr7932/semaine06/Cours13/testCron.log 2>&1
+
+Puis enregistrez et fermez (CTRL + X, Y, Enter).
+
+6️ Vérifier les tâches planifiées
+crontab -l
+
+7️ Vérifier que le script s’exécute
+Attendez 1 minute, puis :
+
+cat /workspaces/Cours_Developpement-de-scripts/02_420-278Developpement-de-scriptsgr7932/semaine06/Cours13/testCron.log
+
+#### Si cron ne fonctionne pas ####
+Redémarrer cron :
+sudo service cron restart
+
+Vérifier les erreurs :
+cat /var/log/syslog | grep CRON
+
+Forcer le démarrage :
+sudo service cron start
