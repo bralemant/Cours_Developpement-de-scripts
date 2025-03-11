@@ -1,7 +1,6 @@
 Voici le lien vers mon espace de code github qui contient toutes les étapes dans un dossier appelé examen :
 
- https://github.com/bralemant/Cours_Developpement-de-scripts/tree/1b1be43793c2efcf14b72d045f5247b02b125d1f/02_420-278Developpement-de-scriptsgr7932/examen
-
+ https://github.com/bralemant/Cours_Developpement-de-scripts/tree/e635a26c22e055c6098c8390fefc8025ff029bd1/02_420-278Developpement-de-scriptsgr7932/examen
 
 Projet de Laboratoire 1
 
