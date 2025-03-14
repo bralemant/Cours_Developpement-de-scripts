@@ -5,7 +5,7 @@ import sys
 
 # Vérifier si les arguments sont fournis
 if len(sys.argv) != 3:
-    print("Usage : ./lancer_le_backup.py <dossier_source> <dossier_destination>")
+    print("Usage : ./lancer_le_backup.py <chemin/dossier_source> <chemin/dossier_destination_sauvegarde>")
     sys.exit(1)
 
 # Récupérer les paramètres
@@ -34,14 +34,14 @@ jours_complets = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "
 nom_jour_complet = jours_complets[jour_semaine]
 
 # Nom de l'archive : "comp" pour vendredi, sinon nom complet
-nom_jour_archive = "comp" if jour_semaine == 4 else nom_jour_complet
+nom_jour_archive = "complet" if jour_semaine == 4 else nom_jour_complet
 backup_file = os.path.join(backup_dir, f"{nom_jour_archive}.tar")
 
 # Type de sauvegarde pour l'affichage
 if jour_semaine in range(0, 4):
-    type_sauvegarde = "diff"
+    type_sauvegarde = "différentielle"
 elif jour_semaine == 4:
-    type_sauvegarde = "comp"
+    type_sauvegarde = "complète"
 else:
     type_sauvegarde = "aucune"
 

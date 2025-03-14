@@ -9,7 +9,7 @@ backup_dir = "/workspaces/Cours_Developpement-de-scripts/02_420-278Developpement
 # Obtenir la date actuelle
 date_aujourdhui = datetime.date.today()
 # Pour tester : décommentez et choisissez une date
-# date_aujourdhui = datetime.date(2025, 3, 18)  # Exemple : lundi
+date_aujourdhui = datetime.date(2025, 3, 19)  # Exemple : lundi
 
 jour_semaine = date_aujourdhui.weekday()
 
@@ -17,9 +17,11 @@ jour_semaine = date_aujourdhui.weekday()
 jours_complets = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"]
 nom_jour_complet = jours_complets[jour_semaine]
 
-# Nom de l'archive : "comp" pour vendredi, sinon nom complet
-nom_jour_archive = "complet" if jour_semaine == 4 else nom_jour_complet
-backup_file = os.path.join(backup_dir, f"{nom_jour_archive}.tar")
+# Générer le nom de l'archive avec strftime et type de sauvegarde
+nom_jour = date_aujourdhui.strftime("%a").lower()
+jours_map = {"mon": "lu", "tue": "ma", "wed": "me", "thu": "je", "fri": "comp", "sat": "sa", "sun": "di"}
+nom_jour = jours_map.get(nom_jour, "inconnu")
+backup_file = os.path.join(backup_dir, f"{nom_jour}.tar")
 
 # Type de sauvegarde pour l'affichage
 if jour_semaine in range(0, 4):
