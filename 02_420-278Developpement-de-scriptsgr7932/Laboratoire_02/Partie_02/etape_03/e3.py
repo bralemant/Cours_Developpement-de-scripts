@@ -1,0 +1,46 @@
+import subprocess
+import datetime
+import os
+
+# Chemin du répertoire à sauvegarder
+source_dir = "/workspaces/Cours_Developpement-de-scripts/02_420-278Developpement-de-scriptsgr7932/Laboratoire_02/Partie_02/Dossier_Test"
+# Répertoire pour stocker les archives
+backup_dir = "/workspaces/Cours_Developpement-de-scripts/02_420-278Developpement-de-scriptsgr7932/Laboratoire_02/Partie_02/Backup_Test"
+
+# Obtenir la date actuelle
+date_aujourdhui = datetime.date.today()
+# Pour tester : décommentez et choisissez une date
+# date_aujourdhui = datetime.date(2025, 3, 17)  # Exemple : lundi
+
+jour_semaine = date_aujourdhui.weekday()
+
+# Générer le nom de l'archive avec strftime
+nom_jour = date_aujourdhui.strftime("%a").lower()
+jours_map = {"mon": "lu", "tue": "ma", "wed": "me", "thu": "je", "fri": "comp", "sat": "sa", "sun": "di"}
+nom_jour = jours_map.get(nom_jour, "inconnu")
+backup_file = os.path.join(backup_dir, f"{nom_jour}.tar")  # Chemin complet
+
+print(f"Date actuelle : {date_aujourdhui}")
+print(f"Jour de la semaine : {nom_jour} ({jour_semaine})")
+print(f"Nom de l'archive : {backup_file}")
+
+try:
+    if jour_semaine in range(0, 4):  # Lundi à jeudi : différentielle
+        print("Début de la sauvegarde différentielle...")
+        cmd = [
+            "find", source_dir, "-type", "f", "-mtime", "-1",
+            "-exec", "tar", "-rvf", backup_file, "{}", "+"
+        ]
+        subprocess.run(cmd, check=True)
+        print(f"Sauvegarde différentielle terminée avec succès : {backup_file}")
+    elif jour_semaine == 4:  # Vendredi : complète
+        print("Début de la sauvegarde complète...")
+        # Exclure les fichiers .tar
+        cmd = ["tar", "-cvf", backup_file, source_dir, "--exclude=*.tar"]
+        subprocess.run(cmd, check=True)
+        print(f"Sauvegarde complète terminée avec succès : {backup_file}")
+    else:  # Week-end
+        print("Aucune sauvegarde prévue le week-end.")
+except subprocess.CalledProcessError as e:
+    print(f"Erreur lors de la création de la sauvegarde : {e}")
+    
