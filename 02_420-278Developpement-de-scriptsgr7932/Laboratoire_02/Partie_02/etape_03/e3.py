@@ -9,7 +9,7 @@ backup_dir = "/workspaces/Cours_Developpement-de-scripts/02_420-278Developpement
 # Obtenir la date actuelle
 date_aujourdhui = datetime.date.today()
 # Pour tester : décommentez et choisissez une date
-date_aujourdhui = datetime.date(2025, 3, 22)  # Exemple : lundi
+# date_aujourdhui = datetime.date(2025, 3, 18)  # Exemple : lundi
 
 jour_semaine = date_aujourdhui.weekday()
 
@@ -18,7 +18,7 @@ jours_complets = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "
 nom_jour_complet = jours_complets[jour_semaine]
 
 # Nom de l'archive : "comp" pour vendredi, sinon nom complet
-nom_jour_archive = "comp" if jour_semaine == 4 else nom_jour_complet
+nom_jour_archive = "complet" if jour_semaine == 4 else nom_jour_complet
 backup_file = os.path.join(backup_dir, f"{nom_jour_archive}.tar")
 
 # Type de sauvegarde pour l'affichage
