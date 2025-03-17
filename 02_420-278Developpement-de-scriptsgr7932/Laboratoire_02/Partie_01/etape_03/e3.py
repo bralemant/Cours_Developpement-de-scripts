@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+print("\n\033[94mÉtape 3. Surveiller Plusieurs Processus depuis un Fichier avec Python \033[0m")
+print()
 import psutil
 import time
  
@@ -9,18 +11,27 @@ def lire_processus_fichier(fichier_liste="/workspaces/Cours_Developpement-de-scr
             processus = [ligne.strip() for ligne in fichier if ligne.strip()]                       # Lit les lignes, supprime les espaces et filtre les lignes vides
         
         if not processus:
-            print("Erreur : Le fichier est vide")
+            print("⚠️  \033[91mErreur : Le fichier est vide.\033[0m")
+            print("Écrire la liste des processus à surveiller dans le fichier 'processus_a_surveiller.txt'")
+            print("\033[93mEmplacement du fichier :\033[0m")
+            print(f"'{fichier_liste}'")
             return None
         return processus
-    
+   
+
+
     except FileNotFoundError:
-        print(f"Erreur : Le fichier '{fichier_liste}' n'a pas été trouvé")
+        print("⚠️  \033[91mErreur : Le fichier 'processus_a_surveiller.txt' n'a pas été trouvé  \033[0m⚠️")
+        print("\033[93mEmplacement du fichier :\033[0m")
+        print(f"'{fichier_liste}'")
         return None
     except PermissionError:
-        print(f"Erreur : Permission refusée pour lire le fichier '{fichier_liste}'")
+        print("⚠️  \033[91mErreur : Permission refusée pour lire le fichier 'processus_a_surveiller.txt'  \033[0m⚠️")
+        print("\033[93mEmplacement du fichier :\033[0m")
+        print(f"'{fichier_liste}'")
         return None
     except Exception as e:
-        print(f"Erreur inattendue lors de la lecture du fichier : {str(e)}")
+        print(f"⚠️  \033[91mErreur inattendue lors de la lecture du fichier : {str(e)}  ⚠️  \033[0m")
         return None
 
 # Intervalle de vérification (en secondes)
@@ -37,12 +48,12 @@ while True:
         processus_trouvé = False
         for proc in psutil.process_iter(['name']):
             if proc.info['name'] == nom_processus:
-                print(f"Processus {nom_processus} trouvé (PID: {proc.pid})")
+                print(f"✅  Processus {nom_processus} trouvé (PID: {proc.pid})")
                 processus_trouvé = True
                 break
         
         if not processus_trouvé:
-            print(f"Processus {nom_processus} non trouvé.")
+            print(f"❌  Processus {nom_processus} non trouvé.")
     
     print("-" * 50)  # Séparateur entre chaque cycle
     time.sleep(interval)
