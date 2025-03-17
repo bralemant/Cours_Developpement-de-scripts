@@ -7,9 +7,9 @@ import sys
 
 # Vérifier si les arguments sont fournis
 if len(sys.argv) != 3:
-    print("\n⚠️  \033[93mTapez una ligne de commande dans le terminal avec la syntaxe suivante :\033[0m")
+    print("⚠️   \033[93mTapez una ligne de commande dans le terminal avec la syntaxe suivante :\033[0m")
     print("./lancer_le_backup.py <chemin/dossier_source> <chemin/dossier_destination_sauvegarde>\033[0m")
-    print("\n\033[93mN'oubliez pas d'écrire correctement l'emplacement du dossier source et l'emplacement du dossier de destination\033[0m")
+    print("\n📌  \033[93mN'oubliez pas d'écrire correctement l'emplacement du dossier source et l'emplacement du dossier de destination\033[0m")
     sys.exit(1)
 
 # Récupérer les paramètres
