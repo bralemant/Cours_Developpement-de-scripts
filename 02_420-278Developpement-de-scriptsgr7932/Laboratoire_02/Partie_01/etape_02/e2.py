@@ -9,7 +9,7 @@ import sys
 if len(sys.argv) > 1:
     nom_processus = sys.argv[1]
 else:
-    print("\033[93m🔔  Vous pouvez continuer ou quittez (Ctrl + C) et depuis le terminal tapez : emplacement du script  <nom du processus>\033[0m")
+    print("\033[93m🔔  Vous pouvez continuer ou quittez (Ctrl + C) et depuis le terminal tapez : <emplacement du script>  <nom du processus>\033[0m")
     nom_processus = input("\n📝  Veuillez entrer le nom du processus à surveiller : ").strip()
     if not nom_processus:
         print("Erreur : Aucun nom de processus n'a été fourni. Le script va s'arrêter.")
