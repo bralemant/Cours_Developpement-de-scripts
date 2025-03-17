@@ -28,7 +28,7 @@ if not os.path.exists(backup_dir):                                              
 
 # Obtenir la date actuelle
 date_aujourdhui = datetime.date.today()
-# Pour tester : décommentez et choisissez une date
+# Pour tester : décommentez et choisissez une date suivant
 #date_aujourdhui = datetime.date(2025, 3, 17)  # Exemple : lundi
 
 jour_semaine = date_aujourdhui.weekday()
