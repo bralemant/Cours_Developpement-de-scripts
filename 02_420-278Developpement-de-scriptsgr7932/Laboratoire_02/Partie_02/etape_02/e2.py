@@ -1,4 +1,4 @@
-print("\n\033[94mÉtape 2. Archiver les Fichiers Récents en Python avec Subprocess \033[0m")
+print("\n\033[94mÉtape 2. Sauvegarde les fichiers récents en Python avec subprocess \033[0m")
 print()
 import subprocess
 
@@ -14,9 +14,9 @@ cmd = [
 ]
 
 try:
-    subprocess.run(cmd, check=True)
-    print("\n✅  \033[92mSauvegarde différentielle créée avec succès\033[0m")
+    subprocess.run(cmd, check=True)                                                                 # Créer une sauvegarde différentielle   
+    print("\n✅  \033[92mSauvegarde différentielle créée avec succès\033[0m")                          
     print("\033[93mEmplacement du fichier :\033[0m")
     print(f"'{backup_file_tar}'")
-except subprocess.CalledProcessError as e:
+except subprocess.CalledProcessError as e:                                                          # Gestion des erreurs         
     print(f"\n⚠️  \033[91mErreur lors de la création de la sauvegarde: {e}  ⚠️\033[0m")

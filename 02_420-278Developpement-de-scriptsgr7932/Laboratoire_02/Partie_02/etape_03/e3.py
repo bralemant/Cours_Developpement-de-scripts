@@ -1,4 +1,4 @@
-print("\n\033[94mÉtape 3. Exécuter des Commandes d'Archivage selon le Jour en Python \033[0m")
+print("\n\033[94mÉtape 3. Exécuter des commandes de sauvegarde selon le jour en Python \033[0m")
 print()
 import subprocess
 import datetime
@@ -11,7 +11,7 @@ backup_dir = "/workspaces/Cours_Developpement-de-scripts/02_420-278Developpement
 # Obtenir la date actuelle
 date_aujourdhui = datetime.date.today()
 # Pour tester : décommentez et choisissez une date
-# date_aujourdhui = datetime.date(2025, 3, 19)  # Exemple : lundi
+# date_aujourdhui = datetime.date(2025, 3, 17)  # Exemple : lundi
 
 jour_semaine = date_aujourdhui.weekday()
 
@@ -39,17 +39,17 @@ print(f"📂  Nom du fichier : \033[96m{nom_jour}.tar\033[0m")
 print(f"📁  Emplacement du fichier : \033[94m {backup_file}\033[0m")
 
 try:
-    if jour_semaine in range(0, 4):  # Lundi à jeudi : différentielle
+    if jour_semaine in range(0, 4):                                                                                         # Lundi à jeudi : différentielle
         print("\n\033[93mDébut de la sauvegarde différentielle...\033[0m")
-        cmd = ["find", source_dir, "-type", "f", "-mtime", "-1", "-exec", "tar", "-rvf", backup_file, "{}", "+"]
-        subprocess.run(cmd, check=True)
+        cmd = ["find", source_dir, "-type", "f", "-mtime", "-1", "-exec", "tar", "-rvf", backup_file, "{}", "+"]            # Exclure les fichiers .tar
+        subprocess.run(cmd, check=True)                                                                                     # Créer une sauvegarde différentielle   
         print("\n✅  \033[92mSauvegarde différentielle terminée avec succès\033[0m")
-    elif jour_semaine == 4:  # Vendredi : complète
+    elif jour_semaine == 4:                                                                                                 # Vendredi : complète
         print("\n\033[93mDébut de la sauvegarde complète...\033[0m")
-        cmd = ["tar", "-cvf", backup_file, source_dir, "--exclude=*.tar"]
-        subprocess.run(cmd, check=True)
+        cmd = ["tar", "--exclude=*.tar", "-cvf", backup_file, source_dir]                                                   # Exclure les fichiers .tar
+        subprocess.run(cmd, check=True)                                                                                     # Créer une sauvegarde complète  
         print("\n✅  \033[92mSauvegarde complète terminée avec succès\033[0m")
-    else:  # Week-end
+    else:                                                                                                                   # Week-end
         print("\n\033[93mAucune sauvegarde prévue le week-end.\033[0m")
-except subprocess.CalledProcessError as e:
+except subprocess.CalledProcessError as e:                                                                                  # Gestion des erreurs 
     print(f"\n⚠️  \033[91mErreur lors de la création de la sauvegarde : {e}  ⚠️\033[0m")
