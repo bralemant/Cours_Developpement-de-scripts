@@ -23,19 +23,11 @@ Parties du projet :
 
 # Partie 4 : Fonctions
 - Fichier : ‘etape_4.py’
-<<<<<<< HEAD
 - Fonctionnalité : Implémente une fonction ‘somme(a, b)’ qui peut additionner deux nombres, concaténer deux chaînes de caractères, ou concaténer un nombre et une chaîne de caractères (vice versa).
 
 # Partie 5 : Manipulation de fichiers
 - Fichier : ‘etape_5.py’
 - Fonctionnalité : Lit le fichier texte 'logfile.txt' et offre à l'utilisateur le choix de :
-=======
-- Fonctionnalité : Implémente une fonction ‘somme(a, b)’ qui peut additionner deux nombres, deux chaînes de caractères, ou un nombre et une chaîne de caractères, et vice versa..
-
-# Partie 5 : Manipulation de fichiers
-- Fichier : ‘etape_5.py’
-- Fonctionnalité : Lit le fichier texte logfile.txt et offre à l'utilisateur le choix de :
->>>>>>> 1b1be43793c2efcf14b72d045f5247b02b125d1f
   1. Compter le nombre de lignes.
   2. Afficher les lignes avec un numéro de ligne pair.
   3. Compter le nombre de voyelles dans le fichier.
